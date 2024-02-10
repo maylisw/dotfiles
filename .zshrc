@@ -3,7 +3,7 @@ export EDITOR=vim
 set -o vi
 
 source .zsh_aliases
-source git-prompt.sh
+source .git-prompt.sh
 
 # git tab completion
 autoload -Uz compinit && compinit
