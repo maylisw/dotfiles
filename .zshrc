@@ -26,4 +26,4 @@ GIT_PS1_DESCRIBE_STYLE="branch"
 # %f = revert to regular text
 # %n = username
 setopt prompt_subst
-PS1='%B%F{magenta}%n@%m%f%b %F{yellow}%*%f %F{blue}%c%f $(__git_ps1 "[%s]")$ '
+PS1='%B%F{green}%n%F{magenta}@%m%f%b %F{yellow}%*%f %F{blue}%c%f $(__git_ps1 "[%s]")$ '
