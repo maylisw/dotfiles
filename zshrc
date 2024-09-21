@@ -3,6 +3,8 @@ export EDITOR=vim
 set -o vi
 
 source ~/.zsh_aliases
+# eval "$(starship init zsh)"
+
 source ~/.git-prompt.sh
 
 # git tab completion
