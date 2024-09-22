@@ -29,3 +29,5 @@ GIT_PS1_DESCRIBE_STYLE="branch"
 # %n = username
 setopt prompt_subst
 PS1='%B%F{green}%n%F{magenta}@%m%f%b %F{yellow}%*%f %F{blue}%c%f $(__git_ps1 "[%s]")$ '
+
+HOMEBREW_AUTO_UPDATE_SECS=3600 # update once an hour
