@@ -14,12 +14,12 @@ function download() {
     fi
 }
 
-fonts = (
-    "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Meslo.zip",
-    "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monaspace.zip",
+fonts=(
+    "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Meslo.zip" # MesloLGS NerdFont
+    "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monaspace.zip"
 )
 
 # todo: actually automate installation
-for f_url in ${fonts}"; do
-    echo "Install font from ${f_url}"
+for f_url in "${fonts[@]}"; do
+    echo "Please install font from ${f_url}"
 done
