@@ -49,16 +49,18 @@ vim.schedule(function()             -- schedule after 'UiEnter' for faster start
 end)
 
 --- tab size ---
+local tabSize = 4
 vim.opt.expandtab = true            -- expand tabs to spaces
-vim.opt.tabstop = 4                 -- hard tab = 4 spaces
-vim.opt.softtabstop = 4             -- soft tab = 4 spaces
-vim.opt.shiftwidth = 4              -- beginning of the line tab = 4 spaces
+vim.opt.tabstop = tabSize           -- hard tab = 4 spaces
+vim.opt.softtabstop = tabSize       -- soft tab = 4 spaces
+vim.opt.shiftwidth = tabSize        -- beginning of the line tab = 4 spaces
 
 --- whitespace display ---
 vim.opt.list = true                 -- display whitespace
 vim.opt.listchars = {
-    tab = '→ ',                     -- hard tab
-    trail = '·',                    -- trailing whitespace
-    nbsp = '␣'                      -- non-breakable space
+  tab = '→ ',                       -- hard tab
+  trail = '·',                      -- trailing whitespace
+  nbsp = '␣'                        -- non-breakable space
 }
 
+-- vim: ts=2 sts=2 sw=2 et
