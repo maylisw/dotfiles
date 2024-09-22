@@ -5,9 +5,17 @@
 --  - :q to quit
 -- Update plugins with :Lazy update
 
-require('lazy').setup({
-  require 'plugins/nightfox'
-}, {})
+local plugins = {
+  require 'plugins/colorschemes',         -- colorschemes
 
+  require 'plugins/telescope',        -- fuzzy finder (and more)
+}
+
+local opts = {}
+
+require('lazy').setup(plugins, opts)
+
+vim.opt.background = 'dark'
+vim.cmd.colorscheme('duskfox')
 
 -- vim: ts=2 sts=2 sw=2 et

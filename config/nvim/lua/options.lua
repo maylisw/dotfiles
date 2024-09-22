@@ -5,13 +5,14 @@ vim.opt.number = true               -- line numbers
 vim.opt.relativenumber = true       -- show relative line numbers
 vim.opt.signcolumn = 'number'       -- use number column to display signs
 
---- mouse ---
+--- GUI ---
 vim.opt.mouse = 'a'                 -- enable mouse
+vim.opt.termguicolors = true
 
 --- cursor ---
 vim.opt.scrolloff = 5               -- keep at least 5 lines +/- cursor on screen
 vim.opt.cursorline = true           -- highlight cursor line
-vim.opt.cursorlineopt = 'number'    -- but just in the number column
+vim.opt.cursorlineopt = 'both'      -- but just in the number column
 
 --- status line ---
 vim.opt.showmode = false            -- don't show mode (already in status line)
