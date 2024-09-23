@@ -13,6 +13,10 @@ local plugins = {
   require 'plugins/treesitter',       -- better syntax highlighting and code navigation
 
   require 'plugins/neo-tree',         -- file finder
+
+  require 'plugins/lspconfig',        -- lsp goodies
+
+  require 'plugins/cmp',              -- autocompletion
 }
 
 local opts = {}
