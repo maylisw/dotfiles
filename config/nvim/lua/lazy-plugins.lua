@@ -11,6 +11,8 @@ local plugins = {
   require 'plugins/telescope',        -- fuzzy finder (and more)
 
   require 'plugins/treesitter',       -- better syntax highlighting and code navigation
+
+  require 'plugins/neo-tree',         -- file finder
 }
 
 local opts = {}
