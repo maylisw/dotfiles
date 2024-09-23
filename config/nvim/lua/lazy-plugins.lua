@@ -32,6 +32,6 @@ local opts = {}
 require("lazy").setup(plugins, opts)
 
 vim.opt.background = "dark"
-vim.cmd.colorscheme("terafox")
+vim.cmd.colorscheme("duskfox")
 
 -- vim: ts=2 sts=2 sw=2 et
