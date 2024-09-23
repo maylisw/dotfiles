@@ -6,26 +6,32 @@
 -- Update plugins with :Lazy update
 
 local plugins = {
-  require 'plugins/colorschemes',     -- colorschemes
+	require("plugins/colorschemes"), -- colorschemes
 
-  require 'plugins/telescope',        -- fuzzy finder (and more)
+	require("plugins/telescope"), -- fuzzy finder (and more)
 
-  require 'plugins/treesitter',       -- better syntax highlighting and code navigation
+	require("plugins/treesitter"), -- better syntax highlighting and code navigation
 
-  require 'plugins/neo-tree',         -- file finder
+	require("plugins/neo-tree"), -- file finder
 
-  require 'plugins/lspconfig',        -- lsp goodies
+	require("plugins/lspconfig"), -- lsp goodies
 
-  require 'plugins/cmp',              -- autocompletion
+	require("plugins/cmp"), -- autocompletion
 
-  require 'plugins/conform',          -- autoformat
+	require("plugins/conform"), -- autoformat
+
+	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+
+	require("plugins/todo-comments"), -- todo comments
+
+	require("plugins/mini"), -- collection of small plugins
 }
 
 local opts = {}
 
-require('lazy').setup(plugins, opts)
+require("lazy").setup(plugins, opts)
 
-vim.opt.background = 'dark'
-vim.cmd.colorscheme('terafox')
+vim.opt.background = "dark"
+vim.cmd.colorscheme("terafox")
 
 -- vim: ts=2 sts=2 sw=2 et
