@@ -1,8 +1,10 @@
-brew "rcm"
 brew "neovim"
 brew "starship"
+brew "tmux"
+
 brew "bat"
-brew "ripgrep"
-brew "git"
 brew "fd"
 brew "fzf"
+brew "git"
+brew "rcm"
+brew "ripgrep"
