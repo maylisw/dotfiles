@@ -84,7 +84,7 @@ return { -- LSP related plugins
       -- Enable the following language servers
       local servers = {
         bashls = {},
-        gopls = {},
+        -- gopls = {},
         pyright = {},
         rust_analyzer = {},
         starlark_rust = {},         -- bazel

@@ -17,6 +17,8 @@ local plugins = {
   require 'plugins/lspconfig',        -- lsp goodies
 
   require 'plugins/cmp',              -- autocompletion
+
+  require 'plugins/conform',          -- autoformat
 }
 
 local opts = {}
