@@ -1,0 +1,1 @@
+EXCLUDES="Brewfile Brewfile.lock.json install.sh setup-devbox.sh"

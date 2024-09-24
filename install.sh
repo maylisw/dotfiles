@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 source install-colors.sh
 # source install-fonts.sh todo: uncomment when script works
@@ -9,4 +9,6 @@ if [ ! -d "${tmux_dir}" ]; then
 fi
 
 brew bundle -q
-rcup -x Brewfile -x install.sh -x Brewfile.lock.json -x install.sh -x itermcolors
+
+cd ~/.dotfiles || exit
+RCRC=./rcrc rcup
