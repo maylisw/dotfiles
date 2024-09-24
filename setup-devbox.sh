@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 source tmux-colors.sh
 
 tmux_dir="tmux/plugins/tpm"
