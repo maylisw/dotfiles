@@ -22,7 +22,7 @@ return {
 
 			---@diagnostic disable-next-line: duplicate-set-field
 			statusline.section_location = function()
-				return "%2l:%-2v%p%%"
+				return "%2l:%-2v%3p%%"
 			end
 
 			---@diagnostic disable-next-line: duplicate-set-field
