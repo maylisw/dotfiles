@@ -1,6 +1,4 @@
--- [[ mini.lua ]] --
-
-return {
+-- [[ mini.lua ]] -- return {
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
@@ -22,7 +20,7 @@ return {
 
 			---@diagnostic disable-next-line: duplicate-set-field
 			statusline.section_location = function()
-				return "%2l:%-2v%p%%"
+				return "%2l:%-2v%3p%%"
 			end
 
 			---@diagnostic disable-next-line: duplicate-set-field
