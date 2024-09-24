@@ -1,6 +1,4 @@
--- [[ telescope.lua ]] --
-
-return {
+-- [[ telescope.lua ]] -- return {
 	{ -- fuzzy-finder for files, keymaps, help, strings, etc...
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter", -- load plugin after VimEnter
