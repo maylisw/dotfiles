@@ -98,11 +98,13 @@ return { -- LSP related plugins
 			local servers = {
 				bashls = {},
 				gopls = {},
+				pbls = {},
 				pyright = {},
 				rust_analyzer = {},
 				starpls = {
 					filetypes = { "bzl", "sky" },
 				},
+				yamlls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
