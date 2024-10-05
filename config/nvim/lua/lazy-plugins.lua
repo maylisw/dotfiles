@@ -30,6 +30,8 @@ local plugins = {
 
 	require("plugins/mini"), -- collection of small plugins
 
+	require("plugins/gitsigns"), -- see git status in editor
+
 	require("plugins/which-key"), -- shows pending keybindings
 }
 

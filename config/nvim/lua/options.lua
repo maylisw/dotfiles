@@ -3,7 +3,7 @@
 --- numbers ---
 vim.opt.number = true -- line numbers
 vim.opt.relativenumber = true -- show relative line numbers
-vim.opt.signcolumn = "number" -- use number column to display signs
+vim.opt.signcolumn = "yes:1" -- use number column to display signs
 
 --- GUI ---
 vim.opt.mouse = "a" -- enable mouse
