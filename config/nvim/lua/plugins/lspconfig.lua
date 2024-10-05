@@ -95,7 +95,9 @@ return { -- LSP related plugins
 				-- gopls = {},
 				pyright = {},
 				rust_analyzer = {},
-				starpls = {}, -- bazel
+				starpls = {
+					filetypes = { "bzl", "sky" },
+				},
 
 				lua_ls = {
 					settings = {

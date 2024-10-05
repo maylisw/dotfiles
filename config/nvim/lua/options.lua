@@ -64,4 +64,10 @@ vim.opt.listchars = {
 	nbsp = "␣", -- non-breakable space
 }
 
+vim.filetype.add({
+	extension = {
+		sky = "starlark",
+	},
+})
+
 -- vim: ts=2 sts=2 sw=2 et
