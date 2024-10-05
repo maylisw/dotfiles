@@ -22,6 +22,11 @@ return { -- LSP related plugins
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
+			{
+				"git@git.corp.stripe.com:nms/nvim-lspconfig-stripe.git",
+				dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "pmizio/typescript-tools.nvim" },
+			},
+
 			{ "j-hui/fidget.nvim", opts = {} }, -- Useful status updates for LSP.
 
 			"hrsh7th/cmp-nvim-lsp", -- Allows extra capabilities provided by nvim-cmp
@@ -92,13 +97,12 @@ return { -- LSP related plugins
 			-- Enable the following language servers
 			local servers = {
 				bashls = {},
-				-- gopls = {},
+				gopls = {},
 				pyright = {},
 				rust_analyzer = {},
 				starpls = {
 					filetypes = { "bzl", "sky" },
 				},
-
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -116,6 +120,11 @@ return { -- LSP related plugins
 			-- You can add other tools here that you want Mason to install
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
+				"buildifier",
+				"goimports",
+				"rubyfmt",
+				"ruff",
+				"rustfmt",
 				"stylua",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -130,6 +139,9 @@ return { -- LSP related plugins
 					end,
 				},
 			})
+
+			require("lspconfig_stripe")
+			require("lspconfig").payserver_sorbet.setup({})
 		end,
 	},
 }
