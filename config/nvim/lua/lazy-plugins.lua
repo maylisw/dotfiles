@@ -12,13 +12,13 @@ local plugins = {
 
 	require("plugins/treesitter"), -- better syntax highlighting and code navigation
 
-	require("plugins/autopairs"), -- autopair parens, braces, quotes, etc..
-
 	require("plugins/neo-tree"), -- file finder
 
-	require("plugins/lspconfig"), -- lsp goodies
+	require("plugins/lspconfig"), -- lsp
 
 	require("plugins/cmp"), -- autocompletion
+
+	require("plugins/autopairs"), -- autopair parens, braces, quotes, etc..
 
 	require("plugins/conform"), -- autoformat
 
@@ -27,6 +27,8 @@ local plugins = {
 	require("plugins/todo-comments"), -- todo comments
 
 	require("plugins/mini"), -- collection of small plugins
+
+	require("plugins/which-key"), -- shows pending keybindings
 }
 
 local opts = {}
