@@ -12,6 +12,8 @@ local plugins = {
 
 	require("plugins/treesitter"), -- better syntax highlighting and code navigation
 
+	require("plugins/autopairs"), -- autopair parens, braces, quotes, etc..
+
 	require("plugins/neo-tree"), -- file finder
 
 	require("plugins/lspconfig"), -- lsp goodies
