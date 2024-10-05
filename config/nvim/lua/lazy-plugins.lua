@@ -24,6 +24,8 @@ local plugins = {
 
 	require("plugins/nvim-lint"), -- linting
 
+	require("plugins/debug"), -- debug setups
+
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	require("plugins/todo-comments"), -- todo comments

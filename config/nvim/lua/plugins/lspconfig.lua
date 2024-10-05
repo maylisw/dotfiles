@@ -43,8 +43,8 @@ return { -- LSP related plugins
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition") --  To jump back, press <C-t>.
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation") -- if implementation is seperate from definition
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition") -- jump to the type of the symbol
-					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+					map("<leader>gt", require("telescope.builtin").lsp_type_definitions, "[G]oto to [T]ype Definition") -- jump to the type of the symbol
+					map("<leader>ls", require("telescope.builtin").lsp_document_symbols, "[L]ist [S]ymbols")
 					map(
 						"<leader>ws",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
@@ -98,7 +98,6 @@ return { -- LSP related plugins
 			local servers = {
 				bashls = {},
 				gopls = {},
-				pbls = {},
 				pyright = {},
 				rust_analyzer = {},
 				starpls = {
@@ -119,11 +118,15 @@ return { -- LSP related plugins
 
 			require("mason").setup()
 
+			-- TODO: move this setup to a dedicated "language setup section"
+			-- for each language we need: lsp, linter, debugger
 			-- You can add other tools here that you want Mason to install
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"buildifier",
 				"goimports",
+				"delve", -- go debugger
+				"protolint",
 				"rubyfmt",
 				"ruff",
 				"rustfmt",
@@ -141,6 +144,10 @@ return { -- LSP related plugins
 					end,
 				},
 			})
+
+			--  protols is not supported by Mason yet
+			--  cargo install protols
+			require("lspconfig").protols.setup({})
 
 			require("lspconfig_stripe")
 			require("lspconfig").payserver_sorbet.setup({})
