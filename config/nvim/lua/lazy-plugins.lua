@@ -22,6 +22,8 @@ local plugins = {
 
 	require("plugins/conform"), -- autoformat
 
+	require("plugins/nvim-lint"), -- linting
+
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	require("plugins/todo-comments"), -- todo comments
