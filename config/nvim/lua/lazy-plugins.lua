@@ -18,9 +18,11 @@ local plugins = {
 
 	require("plugins/lint"), -- linting and formatting
 
+	require("plugins/cmp"), -- autocompletion
+
 	require("plugins/debug"), -- debug setups
 
-	require("plugins/cmp"), -- autocompletion
+	require("plugins/vim-test"), -- integration with test frameworks
 
 	require("plugins/autopairs"), -- autopair parens, braces, quotes, etc..
 

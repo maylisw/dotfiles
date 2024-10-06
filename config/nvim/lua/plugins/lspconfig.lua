@@ -103,6 +103,7 @@ return { -- LSP related plugins
 				"ruff",
 				"rustfmt",
 				"stylua",
+				"vale",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
