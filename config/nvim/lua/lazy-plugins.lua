@@ -6,33 +6,38 @@
 -- Update plugins with :Lazy update
 
 local plugins = {
-	require("plugins/colorschemes"), -- colorschemes
-
+	-- [ File Exploration ] --
 	require("plugins/telescope"), -- fuzzy finder (and more)
-
-	require("plugins/treesitter"), -- better syntax highlighting and code navigation
 
 	require("plugins/neo-tree"), -- file finder
 
+	-- [ Programming ] --
+	require("plugins/treesitter"), -- better syntax highlighting and code navigation
+
 	require("plugins/lspconfig"), -- lsp
-
-	require("plugins/cmp"), -- autocompletion
-
-	require("plugins/autopairs"), -- autopair parens, braces, quotes, etc..
 
 	require("plugins/lint"), -- linting and formatting
 
 	require("plugins/debug"), -- debug setups
 
+	require("plugins/cmp"), -- autocompletion
+
+	require("plugins/autopairs"), -- autopair parens, braces, quotes, etc..
+
+	-- [ UI ] --
+	require("plugins/colorschemes"),
+
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	require("plugins/todo-comments"), -- todo comments
 
-	require("plugins/mini"), -- collection of small plugins
+	require("plugins/mini"), -- collection of small plugins (status bar!)
+
+	require("plugins/which-key"), -- shows pending keybindings
 
 	require("plugins/gitsigns"), -- see git status in editor
 
-	require("plugins/which-key"), -- shows pending keybindings
+	require("plugins/tmux-navigator"), -- better window integration with tmux
 }
 
 local opts = {}
