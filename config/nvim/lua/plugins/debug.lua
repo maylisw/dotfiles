@@ -40,9 +40,7 @@ return {
 			automatic_installation = true,
 			handlers = {},
 
-			-- TODO: insstall
 			ensure_installed = {
-				-- Update this to ensure that you have the debuggers for the langs you want
 				"delve",
 			},
 		})

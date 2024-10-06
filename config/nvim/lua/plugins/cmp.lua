@@ -15,7 +15,7 @@ return {
 					return "make install_jsregexp"
 				end)(),
 				dependencies = {
-					-- `friendly-snippets` contains a variety of premade snippets.
+					"saadparwaiz1/cmp_luasnip",
 					{
 						"rafamadriz/friendly-snippets",
 						config = function()
@@ -24,7 +24,6 @@ return {
 					},
 				},
 			},
-			"saadparwaiz1/cmp_luasnip",
 
 			-- Adds other completion capabilities.
 			"hrsh7th/cmp-nvim-lsp",
@@ -74,6 +73,7 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
+					{ name = "buffer" },
 				},
 			})
 		end,

@@ -17,15 +17,15 @@ return { -- LSP related plugins
 		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			-- Mason: automatically installs LSPs and related tools for Neovim
-			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
+			{ "williamboman/mason.nvim", config = true },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
-			{
-				"git@git.corp.stripe.com:nms/nvim-lspconfig-stripe.git",
-				dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "pmizio/typescript-tools.nvim" },
-			},
+			-- TODO: make this conditional on being on a stripe laptop
+			--			{
+			--				"git@git.corp.stripe.com:nms/nvim-lspconfig-stripe.git",
+			--				dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "pmizio/typescript-tools.nvim" },
+			--			},
 
 			{ "j-hui/fidget.nvim", opts = {} }, -- Useful status updates for LSP.
 
