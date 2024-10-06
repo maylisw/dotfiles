@@ -19,10 +19,8 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 ------ Autocomands ------
--- highlight what we yanked
 vim.api.nvim_create_autocmd("TextYankPost", { -- listen to TextYankPost event
 	desc = "Highlight when yanking text",
-	-- create group to prevent duplicate listeners
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
