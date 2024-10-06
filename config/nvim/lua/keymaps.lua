@@ -19,11 +19,39 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 ------ Autocomands ------
-vim.api.nvim_create_autocmd("TextYankPost", { -- listen to TextYankPost event
+vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
+	end,
+})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	desc = "Update tmux colorscheme when vim colorscheme changes",
+	group = vim.api.nvim_create_augroup("colorscheme-update", { clear = true }),
+	callback = function()
+		local colorscheme = vim.g.colors_name
+		vim.cmd(string.format("silent !tmux source-file ~/.tmux/%s.tmux", colorscheme))
+	end,
+})
+
+vim.api.nvim_create_autocmd("OptionSet", {
+	desc = "Update colorscheme on background change",
+	group = vim.api.nvim_create_augroup("background-mode-update", { clear = true }),
+	pattern = "background",
+	callback = function()
+		local colorscheme = vim.g.colors_name
+		if colorscheme ~= "solarized" then
+			-- TODO: Make this depend on the current theme
+			-- if colorscheme == "dawnfox" or colorscheme == "duskfox" then
+			-- does not work bc colorscheme is sometimes nil
+			local risingfox = {
+				light = "dawnfox",
+				dark = "duskfox",
+			}
+			vim.cmd.colorscheme(risingfox[vim.o.background])
+		end
 	end,
 })
 

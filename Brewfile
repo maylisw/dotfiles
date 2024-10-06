@@ -9,3 +9,5 @@ brew "git"
 brew "rcm"
 brew "ripgrep"
 brew "protobuf"
+
+brew "cormacrelf/tap/dark-notify"

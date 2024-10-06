@@ -33,7 +33,7 @@ return { -- LSP related plugins
 		},
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", { -- run when an LSP attaches to a buffer
-				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 				callback = function(event)
 					local map = function(keys, func, desc, mode) -- helper function for remapping
 						mode = mode or "n"

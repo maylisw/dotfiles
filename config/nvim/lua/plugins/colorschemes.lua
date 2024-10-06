@@ -19,8 +19,15 @@ return {
 		"maxmx03/solarized.nvim",
 		lazy = false,
 		priority = 1000,
-		---@type solarized.config
 		opts = {},
+	},
+	{ -- autoswitch modes w/ MacOS
+		"cormacrelf/dark-notify",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("dark_notify").run()
+		end,
 	},
 }
 -- vim: ts=2 sts=2 sw=2 et
