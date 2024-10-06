@@ -5,12 +5,15 @@ return {
 	dependencies = {
 		"rcarriga/nvim-dap-ui", -- nice UI
 		"nvim-neotest/nvim-nio", -- dependency of the UI
+		"theHamsta/nvim-dap-virtual-text",
 
 		"williamboman/mason.nvim",
 		"jay-babu/mason-nvim-dap.nvim",
 
 		-- Add your own debuggers here
 		"leoluz/nvim-dap-go",
+		"mfussenegger/nvim-dap-python",
+		"suketa/nvim-dap-ruby",
 	},
 	keys = function(_, keys)
 		local dap = require("dap")
@@ -41,6 +44,7 @@ return {
 			handlers = {},
 
 			ensure_installed = {
+				"debugpy",
 				"delve",
 			},
 		})
@@ -66,11 +70,15 @@ return {
 		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 		dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
+		-- setup language specific DAPs
 		require("dap-go").setup({
 			delve = {
 				detached = vim.fn.has("win32") == 0,
 			},
 		})
+		require("dap-python").setup("python")
+		require("dap-ruby").setup()
+		require("nvim-dap-virtual-text").setup()
 	end,
 }
 -- vim: ts=2 sts=2 sw=2 et
