@@ -22,10 +22,10 @@ return { -- LSP related plugins
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 			-- TODO: make this conditional on being on a stripe laptop
-			--			{
-			--				"git@git.corp.stripe.com:nms/nvim-lspconfig-stripe.git",
-			--				dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "pmizio/typescript-tools.nvim" },
-			--			},
+			{
+				"git@git.corp.stripe.com:nms/nvim-lspconfig-stripe.git",
+				dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "pmizio/typescript-tools.nvim" },
+			},
 
 			{ "j-hui/fidget.nvim", opts = {} }, -- Useful status updates for LSP.
 
