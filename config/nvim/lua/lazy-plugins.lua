@@ -20,9 +20,7 @@ local plugins = {
 
 	require("plugins/autopairs"), -- autopair parens, braces, quotes, etc..
 
-	require("plugins/conform"), -- autoformat
-
-	require("plugins/nvim-lint"), -- linting
+	require("plugins/lint"), -- linting and formatting
 
 	require("plugins/debug"), -- debug setups
 
