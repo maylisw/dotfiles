@@ -32,7 +32,7 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
-    os_icon                 # os identifier
+    # os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -53,11 +53,11 @@
     asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
     anaconda                # conda environment (https://conda.io/)
-    pyenv                   # python environment (https://github.com/pyenv/pyenv)
+    # pyenv                   # python environment (https://github.com/pyenv/pyenv)
     goenv                   # go environment (https://github.com/syndbg/goenv)
-    nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
-    nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
-    nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
+    # nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
+    # nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
+    # nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
     # node_version          # node.js version
     # go_version            # go version (https://golang.org)
     # rust_version          # rustc version (https://www.rust-lang.org)
@@ -66,8 +66,8 @@
     # laravel_version       # laravel php framework version (https://laravel.com/)
     # java_version          # java version (https://www.java.com/)
     # package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
-    rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
-    rvm                     # ruby version from rvm (https://rvm.io)
+    # rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
+    # rvm                     # ruby version from rvm (https://rvm.io)
     fvm                     # flutter version management (https://github.com/leoafarias/fvm)
     luaenv                  # lua version from luaenv (https://github.com/cehoffman/luaenv)
     jenv                    # java version from jenv (https://github.com/jenv/jenv)
@@ -363,10 +363,12 @@
   typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=3
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=2
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=3
-  typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
+  typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=244
+
+  typeset -g POWERLEVEL9K_VCS_MAX_SYNC_LATENCY_SECONDS=0.005
 
   # Branch icon. Set this parameter to '\UE0A0 ' for the popular Powerline branch icon.
-  typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
+  typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='\UE0A0 '
 
   # Untracked files icon. It's really a question mark, your font isn't broken.
   # Change the value of this parameter to show a different icon.
@@ -436,22 +438,23 @@
       res+=" ${modified}wip"
     fi
 
-    if (( VCS_STATUS_COMMITS_AHEAD || VCS_STATUS_COMMITS_BEHIND )); then
-      # ⇣42 if behind the remote.
-      (( VCS_STATUS_COMMITS_BEHIND )) && res+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
-      # ⇡42 if ahead of the remote; no leading space if also behind the remote: ⇣42⇡42.
-      (( VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND )) && res+=" "
-      (( VCS_STATUS_COMMITS_AHEAD  )) && res+="${clean}⇡${VCS_STATUS_COMMITS_AHEAD}"
-    elif [[ -n $VCS_STATUS_REMOTE_BRANCH ]]; then
-      # Tip: Uncomment the next line to display '=' if up to date with the remote.
-      # res+=" ${clean}="
-    fi
+    # if (( VCS_STATUS_COMMITS_AHEAD || VCS_STATUS_COMMITS_BEHIND )); then
+    #   # ⇣42 if behind the remote.
+    #   (( VCS_STATUS_COMMITS_BEHIND )) && res+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
+    #   # ⇡42 if ahead of the remote; no leading space if also behind the remote: ⇣42⇡42.
+    #   (( VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND )) && res+=" "
+    #   (( VCS_STATUS_COMMITS_AHEAD  )) && res+="${clean}⇡${VCS_STATUS_COMMITS_AHEAD}"
+    # elif [[ -n $VCS_STATUS_REMOTE_BRANCH ]]; then
+    #   # Tip: Uncomment the next line to display '=' if up to date with the remote.
+    #   # res+=" ${clean}="
+    # fi
 
-    # ⇠42 if behind the push remote.
-    (( VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" ${clean}⇠${VCS_STATUS_PUSH_COMMITS_BEHIND}"
-    (( VCS_STATUS_PUSH_COMMITS_AHEAD && !VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" "
-    # ⇢42 if ahead of the push remote; no leading space if also behind: ⇠42⇢42.
-    (( VCS_STATUS_PUSH_COMMITS_AHEAD  )) && res+="${clean}⇢${VCS_STATUS_PUSH_COMMITS_AHEAD}"
+    # # ⇠42 if behind the push remote.
+    # (( VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" ${clean}⇠${VCS_STATUS_PUSH_COMMITS_BEHIND}"
+    # (( VCS_STATUS_PUSH_COMMITS_AHEAD && !VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" "
+    # # ⇢42 if ahead of the push remote; no leading space if also behind: ⇠42⇢42.
+    # (( VCS_STATUS_PUSH_COMMITS_AHEAD  )) && res+="${clean}⇢${VCS_STATUS_PUSH_COMMITS_AHEAD}"
+
     # *42 if have stashes.
     (( VCS_STATUS_STASHES        )) && res+=" ${clean}*${VCS_STATUS_STASHES}"
     # 'merge' if the repo is in an unusual state.
