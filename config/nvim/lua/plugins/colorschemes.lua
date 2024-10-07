@@ -8,7 +8,8 @@ return {
 		opts = {
 			options = {
 				styles = {
-					comments = "italic",
+					-- TODO: Figure out why italic causes highlights in tmux
+					comments = "NONE",
 					keywords = "bold",
 					types = "italic,bold",
 				},

@@ -1,6 +1,8 @@
 brew "neovim"
 brew "starship"
 brew "tmux"
+brew "zsh-syntax-highlighting"
+brew "zsh-autosuggestions"
 
 brew "bat"
 brew "fd"

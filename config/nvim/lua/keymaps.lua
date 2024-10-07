@@ -50,7 +50,9 @@ vim.api.nvim_create_autocmd("OptionSet", {
 				light = "dawnfox",
 				dark = "duskfox",
 			}
-			vim.cmd.colorscheme(risingfox[vim.o.background])
+			colorscheme = risingfox[vim.o.background]
+			vim.cmd.colorscheme(colorscheme)
+			vim.cmd(string.format("silent !tmux source-file ~/.tmux/%s.tmux", colorscheme))
 		end
 	end,
 })
