@@ -41,8 +41,10 @@ vim.opt.updatetime = 750 -- used by a lot of plugins for when to refresh
 vim.opt.timeoutlen = 400 -- decrease mapped sequence wait-time
 
 --- history ---
+vim.opt.autowriteall = true -- write file when changing buffers
 vim.opt.history = 1000 -- keep 1000 lines of command history
 vim.opt.undofile = true -- save undo history
+vim.opt.undodir = "~/.config/nvim/undo_dir"
 
 --- clipboard ---
 vim.schedule(function() -- schedule after 'UiEnter' for faster startup
