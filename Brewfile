@@ -1,5 +1,6 @@
 brew "neovim"
 brew "starship"
+brew "powerlevel10k"
 brew "tmux"
 brew "zsh-syntax-highlighting"
 brew "zsh-autosuggestions"

@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # editor
 export EDITOR=nvim
 set -o vi
@@ -10,6 +17,7 @@ if type rg &> /dev/null; then
 fi
 
 source ~/.zsh_aliases
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey "^h" backward-word
@@ -38,11 +46,8 @@ PS1='%B%F{green}%n%F{magenta}@%m%f%b %F{yellow}%*%f %F{blue}%c%f $(getBranch "[%
 
 HOMEBREW_AUTO_UPDATE_SECS=604800 # update once a week
 
-# START - Managed by chef cookbook stripe_cpe_bin
-alias tc='/usr/local/stripe/bin/test_cookbook'
-alias cz='/usr/local/stripe/bin/chef-zero'
-alias cookit='tc && cz'
-# STOP - Managed by chef cookbook stripe_cpe_bin
-
 # should go last
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
