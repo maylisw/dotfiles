@@ -65,6 +65,12 @@ vim.opt.listchars = {
 	nbsp = "␣", -- non-breakable space
 }
 
+-- spelling --
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+vim.opt.spelloptions = "camel" -- spellcheck individual words in CamelCase
+
+-- custom filetypes --
 vim.filetype.add({
 	extension = {
 		sky = "starlark",

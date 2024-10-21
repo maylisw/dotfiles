@@ -98,6 +98,7 @@ return { -- LSP related plugins
 				"buildifier",
 				"goimports",
 				"delve", -- go debugger
+				"markdownlint",
 				"protolint",
 				"rubyfmt",
 				"ruff",

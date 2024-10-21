@@ -3,6 +3,21 @@
 -- Use ESC in normal mode to clear search highlighting
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- Better scrolling with zz
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Better searching with zz
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- Navigate buffers with <leader>n/p
+vim.keymap.set("n", "<leader>n", '":<c-u>" .. v:count1 .. "bnext<CR>"', { expr = true })
+vim.keymap.set("n", "<leader>p", '":<c-u>" .. v:count1 .. "bprev<CR>"', { expr = true })
+
+-- Use leader p to delete under selection in visual mode and paste w/o affecting current registers
+vim.keymap.set("x", "<leader>p", '"_dP')
+
 ------ Diagnostics ------
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uick fix list" })
 

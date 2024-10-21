@@ -9,34 +9,17 @@ return {
 			"nvim-lua/plenary.nvim",
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
-
-				-- build is used to run commands when the plugin is installed/updated
 				build = "make",
-
-				-- `cond` is used to determine if the plugin should be loaded/installed
 				cond = function()
 					return vim.fn.executable("make") == 1
 				end,
 			},
 			"nvim-telescope/telescope-ui-select.nvim",
-
-			-- pretty icons if you have a nerd font
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 		config = function()
-			--  In telescope use the following to get help on keymaps
-			--  - Insert mode: <c-/>
-			--  - Normal mode: ?
-
 			-- [[ Configure Telescope ]]
 			require("telescope").setup({
-				-- configure telescope keymappings etc... (see `:help telescope.setup()`)
-				--
-				-- defaults = {
-				--   mappings = {
-				--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-				--   },
-				-- },
 				pickers = {
 					find_files = {
 						find_command = { "rg", "--ignore", "-L", "--hidden", "--files" },

@@ -23,10 +23,6 @@ source ~/.zsh_aliases
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-bindkey "^h" backward-word
-bindkey "^l" forward-word
-bindkey "^H" backward-kill-word
-
 # use vim bindings for accepting suggestions
 bindkey '^ ' autosuggest-accept
 bindkey '^y' autosuggest-execute
