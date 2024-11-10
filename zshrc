@@ -7,7 +7,7 @@ fi
 
 # To customize prompt, run `p10k configure`
 # Use a host-specific prompt
-[[ ! -f ~/util/p10k.zsh ]] || source ~/util/p10k.zsh
+[[ ! -f ~/.util/p10k.zsh ]] || source ~/.util/p10k.zsh
 
 # shell setup
 source ~/.zsh_aliases
@@ -20,7 +20,7 @@ bindkey '^n' autosuggest-fetch
 bindkey '^d' autosuggest-clear
 bindkey '^o' autosuggest-toggle
 # host-specific setup
-source $HOME/util/host.zsh
+source $HOME/.util/host.zsh
 
 # editor
 export EDITOR=nvim
