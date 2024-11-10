@@ -13,4 +13,5 @@ brew "rcm"
 brew "ripgrep"
 brew "protobuf"
 
+tap "cormacrelf/tap"
 brew "cormacrelf/tap/dark-notify"
