@@ -32,8 +32,7 @@ alias duls="du -h -d1 | sort -hr"
 alias pfzf='$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")'
 
 # ripgrep
-RG_LIGHT="rg -S --hidden --colors 'match:fg:black' --colors 'match:style:bold' --colors 'line:fg:blue'"
-alias rg="$RG_LIGHT"
+alias rg="rg -S --hidden"
 alias rgo="rg --no-heading --no-filename --no-line-number --only-matching"
 
 # git
