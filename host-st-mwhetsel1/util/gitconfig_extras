@@ -1,0 +1,22 @@
+[user]
+	name = "Maÿlis Whetsel"
+	email = "mwhetsel@stripe.com"
+
+[fetch]
+	prune = true
+
+[push]
+	default = simple
+
+# http://stackoverflow.com/questions/18257622/why-is-git-core-preloadindex-default-value-false
+[core]
+	preloadindex = true
+	deltabasecachelimit = 4g
+
+[feature]
+	manyfiles = true
+
+[maintenance]
+	repo = /Users/mwhetsel/stripe/pay-server
+	repo = /Users/mwhetsel/stripe/gocode
+	repo = /Users/mwhetsel/stripe/zoolander

@@ -30,3 +30,7 @@
     cp = cherry-pick
     fp = push --force-with-lease
     bd = branch -D
+
+# extra settings
+[include]
+    path = .util/gitconfig_extras
