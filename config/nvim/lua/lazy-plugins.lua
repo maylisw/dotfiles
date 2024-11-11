@@ -8,6 +8,7 @@
 local plugins = {
 	-- [ File Exploration ] --
 	require("plugins/telescope"), -- fuzzy finder (and more)
+	require("plugins/fzf"), -- fuzzy finder (better in large repos)
 
 	require("plugins/neo-tree"), -- file finder
 
@@ -17,6 +18,8 @@ local plugins = {
 	require("plugins/lspconfig"), -- lsp
 
 	require("plugins/lint"), -- linting and formatting
+
+	require("plugins/copilot"), -- copilot
 
 	require("plugins/cmp"), -- autocompletion
 
