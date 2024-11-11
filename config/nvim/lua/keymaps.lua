@@ -11,9 +11,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Navigate buffers with <leader>n/p
-vim.keymap.set("n", "<leader>n", '":<c-u>" .. v:count1 .. "bnext<CR>"', { expr = true })
-vim.keymap.set("n", "<leader>p", '":<c-u>" .. v:count1 .. "bprev<CR>"', { expr = true })
+-- Navigate buffers with <leader>b{n,p,d}
+vim.keymap.set("n", "<leader>bn", '":<c-u>" .. v:count1 .. "bnext<CR>"', { expr = true })
+vim.keymap.set("n", "<leader>bp", '":<c-u>" .. v:count1 .. "bprev<CR>"', { expr = true })
+vim.keymap.set("n", "<leader>bd", '":<c-u>" .. v:count1 .. "bdel<CR>"', { expr = true })
 
 -- Use leader p to delete under selection in visual mode and paste w/o affecting current registers
 vim.keymap.set("x", "<leader>p", '"_dP')

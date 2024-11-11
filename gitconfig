@@ -1,0 +1,32 @@
+[core]
+    editor = nvim
+    pager = less -FX
+[diff]
+    colorMoved = yes
+    compactionHeuristic = true
+[difftool]
+    prompt = false
+[help]
+    autocorrect = 20
+[init]
+	defaultBranch = main
+[merge]
+    conflictstyle = diff3
+    tool = nvimdiff
+[push]
+    autoSetupRemote = true
+[rebase]
+    updateRefs = true
+[rerere]
+    autoupdate = true
+    enabled = true
+[user]
+	name = Maÿlis Whetsel
+	email = maylisw31@gmail.com
+	username = maylisw
+
+# aliases
+[alias]
+    cp = cherry-pick
+    fp = push --force-with-lease
+    bd = branch -D

@@ -1,14 +1,93 @@
-# colors
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# colorize grep and ls
+alias ls="ls --color=auto"
+alias ll="ls -alF --color"
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
 
-# useful functions
-alias ll='ls -alF --color'
+# verbose file manipulation
+alias cp="cp -v"
+alias mv="mv -v"
+alias rm="rm -v"
 
+# directory nav
+alias cdd="cd .."
+alias cddd="cd ../.."
+alias cdddd="cd ../../.."
+alias cddddd="cd ../../../.."
+alias cdddddd="cd ../../../../.."
+alias cddddddd="cd ../../../../../.."
+
+alias b="popd"
+
+# tmux
+alias tn="tmux new -As"
+
+alias vimdiff="nvim -d"
+
+# list disk usage statistics for the current folder
+alias duls="du -h -d1 | sort -hr"
+
+# use fzf with a file preview
 alias pfzf='$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")'
 
+# ripgrep
+RG_LIGHT="rg -S --hidden --colors 'match:fg:black' --colors 'match:style:bold' --colors 'line:fg:blue'"
+alias rg="$RG_LIGHT"
+alias rgo="rg --no-heading --no-filename --no-line-number --only-matching"
+
+# git
+alias gco="git checkout"
+alias gob="git checkout -b"
+alias goB="git checkout -B"
+
+alias ga="git add"
+alias gap="git add --patch"
+
+alias gc="git commit -v"
+alias gca="gc -a"
+alias gcm="git commit -m"
+alias gcam="git commit -am"
+alias gcan="git commit -a --amend --no-edit"
+alias gcne="git commit --amend --no-edit"
+
+alias gs="git status"
+alias gss="git status --short"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gdw="git diff --color-words"
+alias gdr="git diff-review"
+alias gbc="git by-commit"
+
+alias gf="git fetch"
+alias gfp="git fetch --prune"
+alias gpf="git pull --ff-only"
+
+alias grbc="git rebase --continue"
+alias gri="git rebase -i"
+alias grim="git rebase -i master"
+
+alias gbd="git for-each-ref --format '%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' refs/heads | grep -v '^$' | xargs git branch -D"
+
+# resuable format strings
+GIT_PRETTY_FORMAT_AUTHOR="--pretty=\"%C(auto)%cs%Creset %C(bold green)%h%Creset %C(yellow)%an%Creset%C(auto)%d%Creset %s\""
+# GIT_PRETTY_FORMAT_AUTHOR="--pretty=\"%C(bold green)%h%Creset %C(yellow)%an%Creset%C(auto)%d%Creset %s\""
+GIT_PRETTY_FORMAT_ALIGN="--pretty=\"%C(bold green)%h%Creset %C(yellow)%an%Creset %s%C(auto)%d%Creset\""
+
+alias gl="git log"
+alias glo="git log --oneline"
+# pretty Git log, show authors
+alias glat="git log --graph $GIT_PRETTY_FORMAT_AUTHOR"
+# pretty Git log, all references, show authors
+alias gllat='glat --all'
+# pretty Git log, show authors, align messages
+alias glalat="git log --graph $GIT_PRETTY_FORMAT_ALIGN"
+# pretty Git log, all references, show authors, align messages
+alias glalalt="glala --all"
+
+which tree &> /dev/null && alias tree="tree -F --dirsfirst"
+
+# TODO figure out if this is useful and give it a better alias
 batdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }

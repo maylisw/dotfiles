@@ -13,6 +13,7 @@ fi
 source ~/.zsh_aliases
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # TODO: fix these
 bindkey '^ ' autosuggest-accept
 bindkey '^y' autosuggest-execute
