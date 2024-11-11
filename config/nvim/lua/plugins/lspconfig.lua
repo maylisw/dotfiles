@@ -21,16 +21,18 @@ return { -- LSP related plugins
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
-			-- TODO: make this conditional on being on a stripe laptop
-			{
-				"git@git.corp.stripe.com:nms/nvim-lspconfig-stripe.git",
-				dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "pmizio/typescript-tools.nvim" },
-			},
-
 			{ "j-hui/fidget.nvim", opts = {} }, -- Useful status updates for LSP.
 
 			"hrsh7th/cmp-nvim-lsp", -- Allows extra capabilities provided by nvim-cmp
+
+			{
+				"git@git.corp.stripe.com:nms/nvim-lspconfig-stripe.git",
+				dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "pmizio/typescript-tools.nvim" },
+				-- only install on work computers
+				cond = vim.g.is_work,
+			},
 		},
+
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", { -- run when an LSP attaches to a buffer
 				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
@@ -72,9 +74,6 @@ return { -- LSP related plugins
 				gopls = {},
 				pyright = {},
 				rust_analyzer = {},
-				starpls = {
-					filetypes = { "bzl", "sky" },
-				},
 				yamlls = {},
 				lua_ls = {
 					settings = {
@@ -87,6 +86,12 @@ return { -- LSP related plugins
 					},
 				},
 			}
+
+			if vim.g.is_work then
+				servers["starpls"] = {
+					filetypes = { "bzl", "sky" },
+				}
+			end
 
 			require("mason").setup()
 
@@ -123,8 +128,10 @@ return { -- LSP related plugins
 			--  cargo install protols
 			require("lspconfig").protols.setup({})
 
-			require("lspconfig_stripe")
-			require("lspconfig").payserver_sorbet.setup({})
+			if vim.g.is_work then
+				require("lspconfig_stripe")
+				require("lspconfig").payserver_sorbet.setup({})
+			end
 		end,
 	},
 }
