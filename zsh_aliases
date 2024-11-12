@@ -22,6 +22,7 @@ alias b="popd"
 
 # tmux
 alias tn="tmux new -As"
+alias tls="tmux ls"
 
 alias vimdiff="nvim -d"
 
@@ -37,8 +38,8 @@ alias rgo="rg --no-heading --no-filename --no-line-number --only-matching"
 
 # git
 alias gco="git checkout"
-alias gob="git checkout -b"
-alias goB="git checkout -B"
+alias gcb="git checkout -b"
+alias gcB="git checkout -B"
 
 alias ga="git add"
 alias gap="git add --patch"
