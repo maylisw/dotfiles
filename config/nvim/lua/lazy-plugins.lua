@@ -8,9 +8,10 @@
 local plugins = {
 	-- [ File Exploration ] --
 	require("plugins/telescope"), -- fuzzy finder (and more)
+
 	require("plugins/fzf"), -- fuzzy finder (better in large repos)
 
-	require("plugins/neo-tree"), -- file finder
+	require("plugins/oil"), -- filesytem editor
 
 	-- [ Programming ] --
 	require("plugins/treesitter"), -- better syntax highlighting and code navigation
