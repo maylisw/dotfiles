@@ -38,6 +38,7 @@ alias rgo="rg --no-heading --no-filename --no-line-number --only-matching"
 
 # git
 alias gco="git checkout"
+alias gcs="git checkout \$(git branch | fzf)"
 alias gcb="git checkout -b"
 alias gcB="git checkout -B"
 
