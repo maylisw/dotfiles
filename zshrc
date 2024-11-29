@@ -5,6 +5,25 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# use vi mode in zsh
+# TODO: setup p10k to show mode in prompt?
+set -o vi # bindkey -v = viins, bindkey -a = vicmd
+export KEYTIMEOUT=1
+
+# use vim keys in tab completion menu
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+# make backspace work
+bindkey '^?' backward-delete-char
+
+# edit commands in vim
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^v' edit-command-line
+
 # To customize prompt, run `p10k configure`
 # Use a host-specific prompt
 [[ ! -f ~/.util/p10k.zsh ]] || source ~/.util/p10k.zsh
@@ -12,16 +31,15 @@ fi
 # host-specific setup
 source $HOME/.util/host.zsh
 
-# editor: set before bindkey
+# editor
 export EDITOR=nvim
-set -o vi
 
 # shell setup
 source ~/.zsh_aliases
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# TODO: fix these
+# auto-suggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
 bindkey '^y' autosuggest-execute
 bindkey '^n' autosuggest-fetch
