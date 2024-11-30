@@ -6,6 +6,7 @@ return {
 		config = function()
 			require("fzf-lua").setup({
 				"telescope",
+				fzf_colors = false,
 			})
 			if vim.fn.executable("fzf") ~= 1 then
 				vim.notify("fzf not found. brew install fzf", vim.log.levels.WARN)

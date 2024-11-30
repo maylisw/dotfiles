@@ -6,7 +6,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # use vi mode in zsh
-# TODO: setup p10k to show mode in prompt?
 set -o vi # bindkey -v = viins, bindkey -a = vicmd
 export KEYTIMEOUT=1
 
@@ -28,15 +27,11 @@ bindkey '^v' edit-command-line
 # Use a host-specific prompt
 [[ ! -f ~/.util/p10k.zsh ]] || source ~/.util/p10k.zsh
 
-# host-specific setup
-source $HOME/.util/host.zsh
-
-# editor
-export EDITOR=nvim
-
 # shell setup
 source ~/.zsh_aliases
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+# host-specific setup
+source $HOME/.util/host.zsh
 
 # auto-suggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -45,6 +40,17 @@ bindkey '^y' autosuggest-execute
 bindkey '^n' autosuggest-fetch
 bindkey '^d' autosuggest-clear
 bindkey '^o' autosuggest-toggle
+export ZSH_AUTOSUGGEST_STRATEGY=(
+    history
+    completion # use tab completion for auto-suggest
+)
+
+# history settings
+setopt extendedhistory
+setopt hist_ignore_dups # ignore dups of previous commands
+
+# editor
+export EDITOR=nvim
 
 # fzf
 source <(fzf --zsh)
@@ -53,8 +59,6 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
   export FZF_DEFAULT_OPTS='-m'
 fi
-
-HOMEBREW_AUTO_UPDATE_SECS=604800 # update once a week
 
 # should go last
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -38,3 +38,8 @@ for theme in Solarized%20{Light,Dark}; do
     fi
 done
 
+# Slack themes
+# set gradient + darker sidebars (if using a darkmode theme)
+# foxes: bg0/bg1, bg3 (or sel0), green.base, fg2
+# dawnfox: #faf4ed, #ebdfe4, #618774, #625c87
+# duskfox: #4b4673, #63577d, #a3be8c, #e0def4

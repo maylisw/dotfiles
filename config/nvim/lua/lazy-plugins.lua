@@ -41,7 +41,7 @@ local plugins = {
 
 	require("plugins/which-key"), -- shows pending keybindings
 
-	require("plugins/gitsigns"), -- see git status in editor
+	require("plugins/git"), -- git configurations in editor
 
 	require("plugins/tmux-navigator"), -- better window integration with tmux
 }
