@@ -27,11 +27,12 @@ bindkey '^v' edit-command-line
 # Use a host-specific prompt
 [[ ! -f ~/.util/p10k.zsh ]] || source ~/.util/p10k.zsh
 
+# host-specific setup
+source $HOME/.util/host.zsh
+
 # shell setup
 source ~/.zsh_aliases
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
-# host-specific setup
-source $HOME/.util/host.zsh
 
 # auto-suggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

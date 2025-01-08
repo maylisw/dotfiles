@@ -69,6 +69,7 @@ alias gri="git rebase -i"
 alias grim="git rebase -i master"
 
 alias gbd="git for-each-ref --format '%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' refs/heads | grep -v '^$' | xargs git branch -D"
+alias gbds="git branch -D \$(git branch | fzf)"
 
 # resuable format strings
 GIT_PRETTY_FORMAT_AUTHOR="--pretty=\"%C(auto)%cs%Creset %C(bold green)%h%Creset %C(yellow)%an%Creset%C(auto)%d%Creset %s\""
