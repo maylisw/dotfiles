@@ -5,7 +5,6 @@ return {
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
-		enabled = vim.g.is_work,
 		config = function()
 			require("copilot").setup({
 				suggestion = { enabled = false },
@@ -15,7 +14,6 @@ return {
 	},
 	{
 		"zbirenbaum/copilot-cmp",
-		enabled = vim.g.is_work,
 		config = function()
 			require("copilot_cmp").setup()
 		end,

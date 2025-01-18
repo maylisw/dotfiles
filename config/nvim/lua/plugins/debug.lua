@@ -44,8 +44,9 @@ return {
 			handlers = {},
 
 			ensure_installed = {
-				"debugpy",
-				"delve",
+				"codelldb", -- rust
+				"debugpy", -- python
+				"delve", --golang
 			},
 		})
 

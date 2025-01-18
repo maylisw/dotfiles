@@ -73,7 +73,14 @@ return { -- LSP related plugins
 				bashls = {},
 				gopls = {},
 				pyright = {},
-				rust_analyzer = {},
+				rust_analyzer = {
+					diagnostics = {
+						enable = true,
+						experimental = {
+							enable = true,
+						},
+					},
+				},
 				yamlls = {},
 				lua_ls = {
 					settings = {
@@ -102,7 +109,6 @@ return { -- LSP related plugins
 			vim.list_extend(ensure_installed, {
 				"buildifier",
 				"goimports",
-				"delve", -- go debugger
 				"markdownlint",
 				"protolint",
 				"rubyfmt",

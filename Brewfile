@@ -12,6 +12,7 @@ brew "git"
 brew "rcm"
 brew "ripgrep"
 brew "protobuf"
+brew "ncdu"
 
 tap "cormacrelf/tap"
 brew "cormacrelf/tap/dark-notify"

@@ -12,6 +12,7 @@ return {
 				"diff",
 				"go",
 				"html",
+				"json",
 				"lua",
 				"luadoc",
 				"markdown",

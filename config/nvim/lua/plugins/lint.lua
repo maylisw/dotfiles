@@ -35,6 +35,7 @@ return {
 			formatters_by_ft = {
 				bzl = { "buildifier" },
 				go = { "gofmt" },
+				json = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff" },
 				ruby = { "rubyfmt" },

@@ -61,5 +61,10 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m'
 fi
 
+# python environment
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # should go last
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
