@@ -61,6 +61,10 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m'
 fi
 
+
+# pyenv install 3.11.0
+# pyenv global 3.11.0
+
 # python environment
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
