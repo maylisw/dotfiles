@@ -30,6 +30,7 @@
     cp = cherry-pick
     fp = push --force-with-lease
     bd = branch -D
+    uc = reset --soft HEAD^
 
 # extra settings
 [include]

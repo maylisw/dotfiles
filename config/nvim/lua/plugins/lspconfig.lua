@@ -72,16 +72,6 @@ return { -- LSP related plugins
 			local servers = {
 				bashls = {},
 				gopls = {},
-				pyright = {},
-				rust_analyzer = {
-					diagnostics = {
-						enable = true,
-						experimental = {
-							enable = true,
-						},
-					},
-				},
-				yamlls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -92,6 +82,36 @@ return { -- LSP related plugins
 						},
 					},
 				},
+				pyright = {},
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {
+							cargo = {
+								loadOutDirsFromCheck = true,
+								features = "all",
+							},
+							checkOnSave = {
+								command = "clippy",
+							},
+							workspace = {
+								symbol = {
+									search_kind = "all_symbols",
+								},
+							},
+						},
+					},
+					diagnostics = {
+						enable = true,
+						experimental = {
+							enable = true,
+						},
+						style_lints = {
+							enable = true,
+						},
+					},
+				},
+				taplo = {},
+				yamlls = {},
 			}
 
 			if vim.g.is_work then

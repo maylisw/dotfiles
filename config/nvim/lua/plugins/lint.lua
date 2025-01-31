@@ -40,6 +40,7 @@ return {
 				python = { "ruff" },
 				ruby = { "rubyfmt" },
 				rust = { "rustfmt" },
+				toml = { "taplo" },
 			},
 		},
 	},
@@ -50,6 +51,7 @@ return {
 			local lint = require("lint")
 			lint.linters_by_ft = {
 				markdown = { "markdownlint" },
+				python = { "ruff" },
 				text = { "vale" },
 			}
 
