@@ -20,7 +20,7 @@ local plugins = {
 
 	require("plugins/lint"), -- linting and formatting
 
-	require("plugins/copilot"), -- copilot
+	require("plugins/ai"), -- AI
 
 	require("plugins/cmp"), -- autocompletion
 

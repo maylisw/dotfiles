@@ -10,4 +10,6 @@ alias prn="pay remote new --repo stripe-internal/gocode:master --ide none --no-n
 
 export GH_HOST=git.corp.stripe.com
 
+ssh-add --apple-use-keychain ~/.ssh/id_rsa_mwhetsel@stripe.com
+
 source ~/.util/stripe.zsh
