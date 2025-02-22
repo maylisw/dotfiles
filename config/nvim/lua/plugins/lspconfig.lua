@@ -72,6 +72,10 @@ return { -- LSP related plugins
 			local servers = {
 				bashls = {},
 				gopls = {},
+				jdtls = {},
+				pyright = {},
+				rust_analyzer = {},
+				yamlls = {},
 				lua_ls = {
 					settings = {
 						Lua = {

@@ -8,4 +8,6 @@ fi
 
 alias prn="pay remote new --repo stripe-internal/gocode:master --ide none --no-notify-on-ready"
 
+export GH_HOST=git.corp.stripe.com
+
 source ~/.util/stripe.zsh

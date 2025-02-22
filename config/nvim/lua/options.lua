@@ -73,7 +73,7 @@ vim.opt.spelloptions = "camel" -- spellcheck individual words in CamelCase
 -- custom filetypes --
 vim.filetype.add({
 	extension = {
-		sky = "starlark",
+		sky = "bzl",
 	},
 })
 
