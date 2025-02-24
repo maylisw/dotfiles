@@ -2,3 +2,4 @@
 
 alias psc="pay stack create"
 
+export HOST_TYPE="work"
