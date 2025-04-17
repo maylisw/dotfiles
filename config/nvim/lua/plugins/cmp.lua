@@ -75,6 +75,7 @@ return {
 					{ name = "path" },
 					{ name = "buffer" },
 					{ name = "copilot" },
+					{ name = "cody" },
 				},
 			})
 
