@@ -12,6 +12,4 @@ export SRC_ACCESS_TOKEN=sgp_foobar
 export SRC_ENDPOINT="http://sourcegraph.corp.stripe.com"
 export SRC_PROXY="unix://~/.stripeproxy"
 
-ssh-add --apple-use-keychain ~/.ssh/id_rsa_mwhetsel@stripe.com > /dev/null 2>&1
-
 source ~/.util/stripe.zsh
