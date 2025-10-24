@@ -17,5 +17,5 @@ brew "ncdu"
 tap "cormacrelf/tap"
 brew "cormacrelf/tap/dark-notify"
 
-tap sourcegraph/src-cli
+tap "sourcegraph/src-cli"
 brew "sourcegraph/src-cli/src-cli"
