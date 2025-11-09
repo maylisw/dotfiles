@@ -19,22 +19,10 @@ return {
 			require("copilot_cmp").setup()
 		end,
 	},
-	-- cody
-	{
-		"sourcegraph/sg.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("sg").setup({
-				enable_cody = true, --note this support has been remove
-				download_binaries = true,
-				-- TODO: on_attach= enable LSP keybindings
-			})
-		end,
-	},
 	-- cursor
 	{
 		"yetone/avante.nvim",
-		enabled = not vim.g.is_work, -- disable for work because we need API keys
+		enabled = not vim.g.is_work, -- TODO: get working
 		event = "VeryLazy",
 		lazy = false,
 		version = "*",
