@@ -70,6 +70,10 @@ vim.opt.spell = true
 vim.opt.spelllang = "en_us"
 vim.opt.spelloptions = "camel" -- spellcheck individual words in CamelCase
 
+-- folds --
+vim.opt.foldmethod.syntax = true
+vim.g.markdown_folding = true
+
 -- custom filetypes --
 vim.filetype.add({
 	extension = {
