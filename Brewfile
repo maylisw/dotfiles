@@ -17,5 +17,5 @@ brew "ncdu"
 tap "cormacrelf/tap"
 brew "cormacrelf/tap/dark-notify"
 
-tap "nikitabobko/tap/aerospace"
-brew "nikitabobko/tap/aerospace"
+tap "nikitabobko/tap"
+cask "aerospace"
