@@ -46,7 +46,14 @@ local plugins = {
 	require("plugins/tmux-navigator"), -- better window integration with tmux
 }
 
-local opts = {}
+local opts = {
+	performance = {
+		rtp = {
+			-- Allow inheriting system-wide configuration paths
+			reset = false,
+		},
+	},
+}
 require("lazy").setup(plugins, opts)
 
 vim.cmd.colorscheme("dawnfox")
