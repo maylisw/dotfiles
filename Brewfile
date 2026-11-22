@@ -14,8 +14,11 @@ brew "ripgrep"
 brew "protobuf"
 brew "ncdu"
 
-tap "cormacrelf/tap"
-brew "cormacrelf/tap/dark-notify"
+# macOS-only; on Linux (devboxes) these are skipped entirely
+if OS.mac?
+  tap "cormacrelf/tap"
+  brew "cormacrelf/tap/dark-notify"
 
-tap "nikitabobko/tap"
-cask "aerospace"
+  tap "nikitabobko/tap"
+  cask "nikitabobko/tap/aerospace"
+end
