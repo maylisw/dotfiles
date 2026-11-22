@@ -137,7 +137,6 @@ return { -- LSP related plugins
 				"protolint",
 				"rubyfmt",
 				"ruff",
-				"rustfmt",
 				"stylua",
 				"vale",
 			})
