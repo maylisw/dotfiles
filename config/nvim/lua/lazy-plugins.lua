@@ -44,6 +44,9 @@ local plugins = {
 	require("plugins/git"), -- git configurations in editor
 
 	require("plugins/tmux-navigator"), -- better window integration with tmux
+
+	-- [ Other ] --
+	require("plugins/beancount"), -- support for beancount ledger
 }
 
 local opts = {
