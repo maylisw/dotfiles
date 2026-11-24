@@ -13,12 +13,6 @@ return {
 			})
 		end,
 	},
-	{
-		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	},
 	-- cursor
 	{
 		"yetone/avante.nvim",
@@ -58,7 +52,7 @@ return {
 			-- optional deps:
 			"echasnovski/mini.pick",
 			"nvim-telescope/telescope.nvim",
-			"hrsh7th/nvim-cmp",
+			"saghen/blink.cmp",
 			"ibhagwan/fzf-lua",
 			"nvim-tree/nvim-web-devicons",
 			"zbirenbaum/copilot.lua",

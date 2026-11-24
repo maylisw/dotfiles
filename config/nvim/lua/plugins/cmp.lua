@@ -2,102 +2,65 @@
 
 return {
 	{ -- Autocompletion
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		"saghen/blink.cmp",
+		version = "1.*",
+		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
-			{
-				"L3MON4D3/LuaSnip",
-				build = (function()
-					-- Build Step is needed for regex support in snippets but doesn't play well with Windows
-					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-						return
-					end
-					return "make install_jsregexp"
-				end)(),
-				dependencies = {
-					"saadparwaiz1/cmp_luasnip",
-					{
-						"rafamadriz/friendly-snippets",
-						config = function()
-							require("luasnip.loaders.from_vscode").lazy_load()
-						end,
+			"rafamadriz/friendly-snippets",
+			"fang2hou/blink-copilot",
+		},
+		opts = {
+
+			keymap = {
+				preset = "none",
+				["<C-n>"] = { "select_next", "fallback" }, -- Select the [n]ext item
+				["<C-p>"] = { "select_prev", "fallback" }, -- Select the [p]revious item
+				["<C-b>"] = { "scroll_documentation_up", "fallback" }, -- Scroll the documentation window [b]ack / [f]orward
+				["<C-f>"] = { "scroll_documentation_down", "fallback" },
+				["<C-y>"] = { "select_and_accept" }, -- Accept ([y]es) the completion
+				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" }, -- Manually trigger a completion
+				["<C-e>"] = { "hide", "fallback" },
+				-- Think of <c-l> as moving to the right of your snippet expansion.
+				-- <c-h> is similar, except moving you backwards.
+				["<C-l>"] = { "snippet_forward", "fallback" },
+				["<C-h>"] = { "snippet_backward", "fallback" },
+			},
+
+			completion = {
+				list = { selection = { preselect = false, auto_insert = true } },
+				documentation = { auto_show = true },
+			},
+
+			sources = {
+				default = { "lazydev", "lsp", "snippets", "path", "buffer", "copilot" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						score_offset = 100, -- make lazydev completions top priority
+					},
+					copilot = {
+						name = "copilot",
+						module = "blink-copilot",
+						score_offset = 100,
+						async = true,
 					},
 				},
 			},
 
-			-- Adds other completion capabilities.
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-path",
+			cmdline = {
+				keymap = {
+					preset = "none",
+					["<C-n>"] = { "select_next", "fallback" },
+					["<C-p>"] = { "select_prev", "fallback" },
+					["<C-y>"] = { "select_and_accept" },
+					["<C-e>"] = { "hide", "fallback" },
+					["<Tab>"] = { "show_and_insert_or_accept_single", "select_next" },
+					["<S-Tab>"] = { "select_prev" },
+				},
+				completion = { menu = { auto_show = true } },
+			},
 		},
-		config = function()
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			luasnip.config.setup({})
-
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				completion = { completeopt = "menu,menuone,noinsert" },
-
-				mapping = cmp.mapping.preset.insert({
-					["<C-n>"] = cmp.mapping.select_next_item(), -- Select the [n]ext item
-					["<C-p>"] = cmp.mapping.select_prev_item(), -- Select the [p]revious item
-
-					["<C-b>"] = cmp.mapping.scroll_docs(-4), -- Scroll the documentation window [b]ack / [f]orward
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-
-					["<C-y>"] = cmp.mapping.confirm({ select = true }), -- Accept ([y]es) the completion
-					["<C-Space>"] = cmp.mapping.complete({}), -- Manually trigger a completion from nvim-cmp
-
-					-- Think of <c-l> as moving to the right of your snippet expansion.
-					-- <c-h> is similar, except moving you backwards.
-					["<C-l>"] = cmp.mapping(function()
-						if luasnip.expand_or_locally_jumpable() then
-							luasnip.expand_or_jump()
-						end
-					end, { "i", "s" }),
-					["<C-h>"] = cmp.mapping(function()
-						if luasnip.locally_jumpable(-1) then
-							luasnip.jump(-1)
-						end
-					end, { "i", "s" }),
-				}),
-				sources = {
-					{
-						name = "lazydev",
-						group_index = 0, -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
-					},
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "path" },
-					{ name = "buffer" },
-					{ name = "copilot" },
-					{ name = "cody" },
-				},
-			})
-
-			-- use buffer source for searching
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
-			})
-
-			-- Use cmdline & path source for ':'
-			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = "path" },
-				}, {
-					{ name = "cmdline" },
-				}),
-				matching = { disallow_symbol_nonprefix_matching = false },
-			})
-		end,
 	},
 }
 -- vim: ts=2 sts=2 sw=2 et

@@ -23,7 +23,7 @@ return { -- LSP related plugins
 
 			{ "j-hui/fidget.nvim", opts = {} }, -- Useful status updates for LSP.
 
-			"hrsh7th/cmp-nvim-lsp", -- Allows extra capabilities provided by nvim-cmp
+			"saghen/blink.cmp", -- Allows extra capabilities provided by blink.cmp
 
 			{
 				"git@git.corp.stripe.com:nms/nvim-lspconfig-stripe.git",
@@ -66,7 +66,7 @@ return { -- LSP related plugins
 			})
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
 
 			-- Enable the following language servers
 			local servers = {
