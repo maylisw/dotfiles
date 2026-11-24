@@ -157,15 +157,6 @@ return { -- LSP related plugins
 			--  cargo install protols
 			require("lspconfig").protols.setup({})
 
-			-- brew install beancount-language-server
-			if not vim.g.is_work then
-				require("lspconfig").beancount.setup({
-					init_options = {
-						journal_file = "/Users/maylisw/beancount-finances/ledger.bean",
-					},
-				})
-			end
-
 			if vim.g.is_work then
 				require("lspconfig_stripe")
 				require("lspconfig").payserver_sorbet.setup({})
